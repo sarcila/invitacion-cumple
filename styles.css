@@ -268,6 +268,16 @@ section{
   color:rgba(248,242,233,.45);max-width:28ch;line-height:1.5;
 }
 
+.modal-photo{
+  width:130px;height:130px;border-radius:50%;overflow:hidden;
+  border:2px solid rgba(184,58,82,.4);
+  box-shadow:0 0 24px rgba(184,58,82,.2);
+  opacity:0;transform:scale(.8);
+  transition:opacity .6s ease .15s,transform .6s ease .15s;
+}
+.modal-overlay.open .modal-photo{opacity:1;transform:scale(1)}
+.modal-photo img{width:100%;height:100%;object-fit:cover}
+
 .modal-items{
   width:100%;display:flex;flex-direction:column;gap:.1rem;
   margin:.6rem 0;
