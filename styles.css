@@ -232,6 +232,7 @@ section{
   position:fixed;inset:0;z-index:3000;
   background:rgba(19,8,16,.85);backdrop-filter:blur(8px);
   display:flex;align-items:center;justify-content:center;
+  overflow-y:auto;padding:1.5rem 0;
   opacity:0;pointer-events:none;transition:opacity .4s ease;
 }
 .modal-overlay.open{opacity:1;pointer-events:auto}
@@ -241,7 +242,7 @@ section{
   background:linear-gradient(165deg,#1a0e17 0%,#130810 100%);
   border:1px solid rgba(184,58,82,.25);
   padding:2.8rem 2.2rem 2rem;
-  max-width:420px;width:90%;
+  max-width:420px;width:90%;flex-shrink:0;
   display:flex;flex-direction:column;align-items:center;gap:1.2rem;
   text-align:center;
   transform:translateY(30px) scale(.96);opacity:0;
@@ -313,4 +314,9 @@ body::after{
   background-size:180px 180px;
 }
 
-@media(max-width:600px){section{padding:3rem 1.2rem}}
+@media(max-width:600px){
+  section{padding:3rem 1.2rem}
+  .modal{padding:2rem 1.4rem 1.5rem}
+  .modal-photo{width:110px;height:110px}
+  .modal-item{padding:.65rem .8rem;gap:.75rem}
+}
