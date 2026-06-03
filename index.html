@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Para Ti · Una Escapada Especial</title>
+<title>Solo Nosotros · 13·06</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Rubik:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -17,20 +17,16 @@
 <canvas id="bg"></canvas>
 <div id="toast"></div>
 
-<!-- ══════════════════════════════════
-     MODAL — Recomendaciones misteriosas
-══════════════════════════════════ -->
+<!-- MODAL ─ Packing list -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">&times;</button>
     <span class="modal-ey">Antes de partir…</span>
     <h3 class="modal-title">Tu lista secreta</h3>
     <p class="modal-hint">No preguntes por qué. Solo confía.</p>
-
     <div class="modal-photo">
       <img src="photo.jpg" alt="Nosotros"/>
     </div>
-
     <div class="modal-items">
       <div class="modal-item">
         <span class="modal-icon">🧴</span>
@@ -43,59 +39,57 @@
         <span class="modal-icon">🕶️</span>
         <div>
           <span class="modal-item-name">Gafas de sol</span>
-          <span class="modal-item-clue">Para lo que brilla, mejor ir preparada.</span>
+          <span class="modal-item-clue">Para lo que brilla, mejor ir preparado.</span>
         </div>
       </div>
       <div class="modal-item">
-        <span class="modal-icon">👙</span>
+        <span class="modal-icon">🩳</span>
         <div>
-          <span class="modal-item-name">Vestido de baño</span>
+          <span class="modal-item-name">Pantaloneta</span>
           <span class="modal-item-clue">Puede que el agua nos esté esperando…</span>
         </div>
       </div>
       <div class="modal-item">
         <span class="modal-icon">📖</span>
         <div>
-          <span class="modal-item-name">Un buen libro</span>
+          <span class="modal-item-name">Scrabble</span>
           <span class="modal-item-clue">Habrá momentos de calma absoluta.</span>
         </div>
       </div>
       <div class="modal-item">
-        <span class="modal-icon">✨</span>
+        <span class="modal-icon">⚡</span>
         <div>
           <span class="modal-item-name">Muchas ganas</span>
           <span class="modal-item-clue">Lo más importante de todo.</span>
         </div>
       </div>
     </div>
-
-    <button class="btn btn-y modal-btn" onclick="closeModal()"><span>Entendido ♡</span></button>
+    <button class="btn btn-primary modal-btn" onclick="closeModal()"><span>Entendido —</span></button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════
-     S0 — HERO · La Escapada
-══════════════════════════════════ -->
+<!-- S0 ─ HERO -->
 <section id="s0">
-  <p class="eyebrow">Una invitación muy especial · para alguien muy especial</p>
-  <h1 class="hero-num">21·03</h1>
-  <p class="hero-sub">
-    Tres días para desconectar del mundo<br/>
-    y estar completamente presentes — tú y yo.
-  </p>
-  <div class="cta">
-    <span>descubre más</span>
-    <div class="cta-line"></div>
+  <div class="hero-wrap">
+    <p class="hero-ey">Una invitación muy especial · para alguien muy especial</p>
+    <h1 class="hero-date" id="heroDate">13<span class="hero-sep">·</span>06</h1>
+    <p class="hero-claim">algo <em>solo nuestro</em></p>
+    <p class="hero-sub">
+      Tres días para desconectar del mundo<br/>
+      y estar completamente presentes — tú y yo.
+    </p>
+    <div class="scroll-cue">
+      <span>descubre más</span>
+      <div class="scroll-line"></div>
+    </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     S1 — MENSAJE
-══════════════════════════════════ -->
+<!-- S1 ─ MENSAJE -->
 <section id="s1">
   <div class="msg-wrap">
-    <span class="msg-tag">Para ti, en tu mes</span>
-    <p class="msg-text">
+    <span class="eyebrow">Para ti, en tu cumpleaños</span>
+    <p class="msg-body">
       <span class="ml">Quiero llevarte lejos del ruido,</span>
       <span class="ml">de las pantallas y las prisas.</span>
       <span class="ml">A un lugar donde el tiempo <em>sea nuestro.</em></span>
@@ -103,85 +97,75 @@
       <span class="ml">Tres días para respirar,</span>
       <span class="ml">reír y <em>estar presentes</em> el uno con el otro.</span>
     </p>
-    <div class="orn">
-      <div class="orn-l"></div>
-      <span class="orn-g">✦</span>
-      <div class="orn-r"></div>
+    <div class="divider">
+      <div class="div-line div-line--l"></div>
+      <span class="div-glyph">✦</span>
+      <div class="div-line div-line--r"></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     S2 — DETALLES ESCAPADA
-══════════════════════════════════ -->
+<!-- S2 ─ DETALLES -->
 <section id="s2">
-  <div class="det-col">
-    <span class="sec-ey">La escapada · 21 al 23 de Marzo</span>
-
-    <div class="di">
-      <div class="di-n">01</div>
-      <div>
-        <span class="di-lb">Partida</span>
-        <div class="di-val">Viernes 21 de Marzo</div>
-        <span class="di-note">Nos vamos por la mañana — el día entero es nuestro</span>
-      </div>
+  <span class="eyebrow sec-ey">La escapada · 13 al 15 de Junio</span>
+  <div class="cards-grid">
+    <div class="card tilt-card">
+      <div class="card-num">01</div>
+      <span class="card-label">Salida</span>
+      <div class="card-val">Sabado 13 de Junio</div>
+      <p class="card-note">Nos vamos por la mañana — el día entero es nuestro</p>
     </div>
-    <div class="di">
-      <div class="di-n">02</div>
-      <div>
-        <span class="di-lb">Regreso</span>
-        <div class="di-val">Domingo 23 de Marzo</div>
-        <span class="di-note">Volvemos descansados y con recuerdos nuevos</span>
-      </div>
+    <div class="card tilt-card">
+      <div class="card-num">02</div>
+      <span class="card-label">Regreso</span>
+      <div class="card-val">Lunes 15 de Junio</div>
+      <p class="card-note">Volvemos con recuerdos nuevos y pilas cargadas</p>
     </div>
-    <div class="di">
-      <div class="di-n">03</div>
-      <div>
-        <span class="di-lb">El plan</span>
-        <div class="di-val">No hay plan</div>
-        <span class="di-note">Solo presencia, calma y tú</span>
-      </div>
+    <div class="card tilt-card">
+      <div class="card-num">03</div>
+      <span class="card-label">El plan</span>
+      <div class="card-val">No hay plan</div>
+      <p class="card-note">Solo presencia, calma y aventura</p>
     </div>
-    <div class="di">
-      <div class="di-n">04</div>
-      <div>
-        <span class="di-lb">Lo que necesitas</span>
-        <div class="di-val">Ropa cómoda y muchas ganas</div>
-        <span class="di-note">De lo demás, yo me encargo</span>
-      </div>
-    </div>
-
-    <div class="info-pill">
-      <span class="pill-icon">📵</span>
-      <div class="pill-body">
-        <strong class="pill-label">Lo que dejaremos atrás</strong>
-        <span class="pill-text">Notificaciones, correos, despertadores y compromisos. Solo nosotros dos.</span>
-      </div>
+    <div class="card tilt-card">
+      <div class="card-num">04</div>
+      <span class="card-label">Qué llevar</span>
+      <div class="card-val">Ropa cómoda</div>
+      <p class="card-note">De lo demás me encargo yo</p>
     </div>
   </div>
-
-  <div class="vr"></div>
-
-  <div class="rsvp-col">
-    <span class="sec-ey">Tu respuesta</span>
-    <p class="rsvp-q">¿Vienes a la escapada conmigo?</p>
-    <p class="rsvp-hint">Con solo un clic, hacemos que pase.</p>
-    <div class="btn-g" id="btnG1">
-      <button class="btn btn-y" onclick="rsvp('esc',true)"><span>Sí, me voy contigo ♡</span></button>
-      <button class="btn btn-n" onclick="rsvp('esc',false)"><span>Necesito pensarlo</span></button>
-    </div>
-    <div class="rsvp-resp" id="resp1">
-      <div class="resp-icon" id="resp1-icon"></div>
-      <p class="resp-tx" id="resp1-tx"></p>
-      <p class="resp-sb" id="resp1-sb"></p>
+  <div class="info-strip">
+    <span class="strip-icon">📵</span>
+    <div>
+      <strong>Lo que dejamos atrás:</strong> notificaciones, correos, alarmas y compromisos. Solo nosotros dos.
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     S5 — CIERRE
-══════════════════════════════════ -->
-<section id="s5">
+<!-- S3 ─ RSVP -->
+<section id="s3">
+  <span class="eyebrow">Tu respuesta</span>
+  <h2 class="rsvp-q">¿Nos<br/>vamos?</h2>
+  <p class="rsvp-hint">Una sola respuesta cambia todo.</p>
+  <div class="btn-group" id="btnGroup">
+    <button class="btn btn-primary magnetic" onclick="rsvp(true)">
+      <span>Sí, me voy contigo</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <button class="btn btn-ghost magnetic" onclick="rsvp(false)">
+      <span>Necesito pensarlo</span>
+    </button>
+  </div>
+  <div class="rsvp-resp" id="rsvpResp">
+    <div class="resp-icon" id="respIcon"></div>
+    <p class="resp-tx" id="respTx"></p>
+    <p class="resp-sb" id="respSb"></p>
+    <button class="btn btn-sm" id="packBtn" onclick="openModal()" style="display:none"><span>Ver qué llevar →</span></button>
+  </div>
+</section>
+
+<!-- S4 ─ CIERRE -->
+<section id="s4">
   <p class="cl-pre">Con todo mi amor</p>
   <h2 class="cl-main">Feliz<br/>Cumpleaños</h2>
   <div class="cl-heart">♥</div>
