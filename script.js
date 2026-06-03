@@ -33,18 +33,31 @@ window.addEventListener('resize', rsz); rsz();
 const tinyStars = Array.from({length:360}, () => ({
   x:Math.random()*W, y:Math.random()*H,
   r:.1+Math.random()*.3, a:.18+Math.random()*.48, da:(Math.random()-.5)*.004,
+  vx:(Math.random()-.5)*.06, vy:(Math.random()-.5)*.04,
 }));
 const medStars = Array.from({length:120}, () => ({
   x:Math.random()*W, y:Math.random()*H,
   r:.4+Math.random()*.55, a:.45+Math.random()*.45, da:(Math.random()-.5)*.006,
+  vx:(Math.random()-.5)*.04, vy:(Math.random()-.5)*.03,
 }));
 const brightStars = Array.from({length:28}, () => ({
   x:Math.random()*W, y:Math.random()*H,
   r:1.1+Math.random()*1.5, a:.65+Math.random()*.35, da:(Math.random()-.5)*.004,
+  vx:(Math.random()-.5)*.03, vy:(Math.random()-.5)*.02,
+}));
+
+const nebulae = Array.from({length:4}, () => ({
+  x:Math.random()*W, y:Math.random()*H,
+  rx:120+Math.random()*180, ry:80+Math.random()*120,
+  hue:Math.random()<.5?220:260,
+  a:.0, ma:.028+Math.random()*.022,
+  da:(Math.random()-.5)*.0003,
+  vx:(Math.random()-.5)*.12, vy:(Math.random()-.5)*.08,
+  ph:Math.random()*Math.PI*2,
 }));
 
 const shooters = [];
-let elapsed = 0, nextShoot = 3500+Math.random()*5000;
+let elapsed = 0, nextShoot = 2000+Math.random()*3500;
 
 const hearts = Array.from({length:14}, () => ({
   x:Math.random()*W, y:Math.random()*H+H, a:0,
@@ -72,9 +85,25 @@ let t = 0;
   hz.addColorStop(0,'transparent'); hz.addColorStop(1,'rgba(20,70,140,.06)');
   cx.fillStyle = hz; cx.fillRect(0,0,W,H);
 
+  /* Drifting nebula clouds */
+  nebulae.forEach(n => {
+    n.x+=n.vx; n.y+=n.vy;
+    if(n.x<-n.rx*2) n.x=W+n.rx; if(n.x>W+n.rx*2) n.x=-n.rx;
+    if(n.y<-n.ry*2) n.y=H+n.ry; if(n.y>H+n.ry*2) n.y=-n.ry;
+    n.a+=n.da+Math.sin(t+n.ph)*.00015; if(n.a>n.ma)n.a=n.ma; if(n.a<.004)n.a=.004;
+    cx.save(); cx.translate(n.x,n.y); cx.scale(1,n.ry/n.rx);
+    const ng=cx.createRadialGradient(0,0,0,0,0,n.rx);
+    ng.addColorStop(0,`hsla(${n.hue},60%,62%,${n.a})`);
+    ng.addColorStop(.55,`hsla(${n.hue},50%,50%,${n.a*.4})`);
+    ng.addColorStop(1,'transparent');
+    cx.fillStyle=ng; cx.beginPath(); cx.arc(0,0,n.rx,0,Math.PI*2); cx.fill(); cx.restore();
+  });
+
   /* Tiny stars */
   tinyStars.forEach(s => {
     s.a+=s.da; if(s.a>.68||s.a<.12)s.da*=-1;
+    s.x+=s.vx; s.y+=s.vy;
+    if(s.x<0)s.x=W; if(s.x>W)s.x=0; if(s.y<0)s.y=H; if(s.y>H)s.y=0;
     cx.beginPath(); cx.arc(s.x,s.y,s.r,0,Math.PI*2);
     cx.fillStyle=`rgba(210,222,255,${s.a})`; cx.fill();
   });
@@ -82,6 +111,8 @@ let t = 0;
   /* Medium stars */
   medStars.forEach(s => {
     s.a+=s.da; if(s.a>.92||s.a<.38)s.da*=-1;
+    s.x+=s.vx; s.y+=s.vy;
+    if(s.x<0)s.x=W; if(s.x>W)s.x=0; if(s.y<0)s.y=H; if(s.y>H)s.y=0;
     cx.beginPath(); cx.arc(s.x,s.y,s.r,0,Math.PI*2);
     cx.fillStyle=`rgba(228,235,255,${s.a})`; cx.fill();
   });
@@ -89,6 +120,8 @@ let t = 0;
   /* Bright stars with glow halo */
   brightStars.forEach(s => {
     s.a+=s.da; if(s.a>1||s.a<.58)s.da*=-1;
+    s.x+=s.vx; s.y+=s.vy;
+    if(s.x<0)s.x=W; if(s.x>W)s.x=0; if(s.y<0)s.y=H; if(s.y>H)s.y=0;
     const g = cx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*5);
     g.addColorStop(0,`rgba(205,218,255,${s.a*.2})`); g.addColorStop(1,'transparent');
     cx.fillStyle=g; cx.fillRect(s.x-s.r*5,s.y-s.r*5,s.r*10,s.r*10);
@@ -98,7 +131,7 @@ let t = 0;
 
   /* Shooting stars */
   if(elapsed>nextShoot){
-    nextShoot=elapsed+5000+Math.random()*9000;
+    nextShoot=elapsed+2500+Math.random()*5000;
     shooters.push({
       x:Math.random()*W*.75, y:Math.random()*H*.42,
       len:85+Math.random()*120, spd:10+Math.random()*5,
