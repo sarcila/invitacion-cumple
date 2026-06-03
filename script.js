@@ -241,6 +241,7 @@ function rsvp(yes){
     document.getElementById('respTx').textContent='¡Nos vamos juntos!';
     document.getElementById('respSb').textContent='13 al 15 de Junio — solo tú y yo.';
     document.getElementById('packBtn').style.display='inline-flex';
+    document.getElementById('resetBtn').style.display='none';
     showToast('¡Escapada confirmada!');
     burst();
     setTimeout(openModal,1300);
@@ -248,8 +249,17 @@ function rsvp(yes){
     document.getElementById('respIcon').textContent='→';
     document.getElementById('respTx').textContent='Tómate el tiempo que necesites.';
     document.getElementById('respSb').textContent='El plan te espera cuando estés listo.';
+    document.getElementById('packBtn').style.display='none';
+    document.getElementById('resetBtn').style.display='inline-block';
     showToast('Cuando quieras, aquí estaré');
   }
+}
+
+function rsvpReset(){
+  document.getElementById('rsvpResp').classList.remove('show');
+  document.getElementById('btnGroup').style.display='flex';
+  document.getElementById('resetBtn').style.display='none';
+  document.getElementById('packBtn').style.display='none';
 }
 
 /* ══════════════════════════════════════
