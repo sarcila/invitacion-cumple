@@ -49,7 +49,7 @@ const brightStars = Array.from({length:28}, () => ({
 const nebulae = Array.from({length:4}, () => ({
   x:Math.random()*W, y:Math.random()*H,
   rx:120+Math.random()*180, ry:80+Math.random()*120,
-  hue:Math.random()<.5?220:260,
+  hue:Math.random()<.5?205:350,
   a:.0, ma:.028+Math.random()*.022,
   da:(Math.random()-.5)*.0003,
   vx:(Math.random()-.5)*.12, vy:(Math.random()-.5)*.08,
