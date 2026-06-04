@@ -253,6 +253,69 @@ section {
 .info-strip strong { color: var(--teal-lt); font-weight: 600; }
 
 /* ══════════════════════════════════════
+   S-CLUES — NOTIFICATION FEED
+══════════════════════════════════════ */
+#s-clues { gap: 1.6rem; }
+
+.clues-sub {
+  font-size: .88rem; color: var(--muted); max-width: 36ch; text-align: center;
+  transform: translateY(14px); opacity: 0;
+  transition: transform .8s var(--ease) .1s, opacity .8s ease .1s;
+}
+.vis .clues-sub { transform: none; opacity: 1; }
+
+.notif-feed {
+  display: flex; flex-direction: column; gap: .6rem;
+  width: 100%; max-width: 440px;
+  transform: translateY(22px); opacity: 0;
+  transition: transform .9s var(--ease) .2s, opacity .9s ease .2s;
+}
+.vis .notif-feed { transform: none; opacity: 1; }
+
+.notif-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: .9rem 1.1rem;
+  display: flex; gap: .75rem; align-items: flex-start;
+}
+.notif-card.locked { opacity: .42; }
+
+.notif-app-icon {
+  font-size: 1.2rem; flex-shrink: 0;
+  width: 2.1rem; height: 2.1rem;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface2); border-radius: 8px;
+}
+
+.notif-body { flex: 1; min-width: 0; }
+
+.notif-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: .5rem; margin-bottom: .3rem;
+}
+
+.notif-app {
+  font-family: var(--fb); font-size: .58rem;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--amber); white-space: nowrap;
+}
+
+.notif-time {
+  font-family: var(--fb); font-size: .6rem;
+  color: var(--muted); white-space: nowrap; flex-shrink: 0;
+}
+.notif-card.locked .notif-time { color: var(--teal); }
+
+.notif-msg {
+  font-family: var(--fh); font-size: 1rem; font-weight: 300;
+  color: var(--text); line-height: 1.5;
+}
+.notif-card.locked .notif-msg {
+  filter: blur(6px); user-select: none; pointer-events: none;
+}
+
+/* ══════════════════════════════════════
    S3 — RSVP
 ══════════════════════════════════════ */
 #s3 { text-align: center; gap: 1.6rem; }
@@ -403,7 +466,8 @@ section {
 
 .modal-icon { font-size: 1.4rem; flex-shrink: 0; }
 .modal-item-name { font-family: var(--fh); font-size: .92rem; font-weight: 700; color: var(--text); display: block; }
-.modal-item-clue { font-size: .72rem; color: var(--muted); font-style: italic; display: block; margin-top: .1rem; }
+.modal-item-clue { font-size: .72rem; color: var(--muted); font-style: italic; display: block; margin-top: .1rem; transition: filter .4s ease; }
+.modal-item-clue.clue-locked { filter: blur(5px); user-select: none; pointer-events: none; }
 .modal-btn { margin-top: .4rem; }
 
 /* ══════════════════════════════════════

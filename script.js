@@ -311,6 +311,57 @@ function showToast(msg){
 }
 
 /* ══════════════════════════════════════
+   CLUE NOTIFICATIONS
+══════════════════════════════════════ */
+(function(){
+  const TRIP = new Date('2026-06-13T00:00:00');
+  const today = new Date(); today.setHours(0,0,0,0);
+  const MS = 86400000;
+  const daysUntil = Math.ceil((TRIP - today) / MS);
+
+  const clues = [
+    { days:9, icon:'🗺️', msg:'La cuenta regresiva comenzó. Hay un lugar que lleva tiempo esperándote.' },
+    { days:7, icon:'🌤️', msg:'El sol calienta fuerte. La noche refresca. Empaca las dos versiones de ti.' },
+    { days:5, icon:'♨️',  msg:'Habrá agua — pero más caliente de lo que imaginas. Y solo para nosotros dos.' },
+    { days:3, icon:'🎨', msg:'Un pueblo pintado de colores que no olvidarás. Ya casi descubres cuál.' },
+    { days:1, icon:'✦',  msg:'Mañana. Solo empaca. De todo lo demás me encargo yo.' },
+  ];
+
+  const feed = document.getElementById('notifFeed');
+  if(!feed) return;
+
+  clues.forEach(c => {
+    const unlocked = daysUntil <= c.days;
+    const unlockDate = new Date(TRIP.getTime() - c.days * MS);
+    let timeLabel;
+    if(unlocked){
+      const daysAgo = Math.floor((today - unlockDate) / MS);
+      timeLabel = daysAgo <= 0 ? 'hoy' : daysAgo === 1 ? 'ayer' : `hace ${daysAgo} días`;
+    } else {
+      const d = Math.ceil((unlockDate - today) / MS);
+      timeLabel = `en ${d} día${d !== 1 ? 's' : ''}`;
+    }
+    const card = document.createElement('div');
+    card.className = 'notif-card' + (unlocked ? '' : ' locked');
+    card.innerHTML = `
+      <div class="notif-app-icon">${unlocked ? c.icon : '🔒'}</div>
+      <div class="notif-body">
+        <div class="notif-header">
+          <span class="notif-app">Escapada · Pista secreta</span>
+          <span class="notif-time">${timeLabel}</span>
+        </div>
+        <p class="notif-msg">${c.msg}</p>
+      </div>`;
+    feed.appendChild(card);
+  });
+
+  document.querySelectorAll('.modal-item[data-unlock]').forEach(item => {
+    if(daysUntil > parseInt(item.dataset.unlock))
+      item.querySelector('.modal-item-clue').classList.add('clue-locked');
+  });
+})();
+
+/* ══════════════════════════════════════
    CONFETTI BURST
 ══════════════════════════════════════ */
 function burst(){
