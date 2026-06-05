@@ -320,7 +320,7 @@ function showToast(msg){
   const daysUntil = Math.ceil((TRIP - today) / MS);
 
   const clues = [
-    { days:9, icon:'🗺️', msg:'La cuenta regresiva comenzó. Hay un lugar que lleva tiempo esperándote.' },
+    { days:9, icon:'🗺️', msg:'La cuenta regresiva comenzó. Escogí un lugar pensando en ti — y en lo que los dos necesitamos.' },
     { days:7, icon:'🌤️', msg:'El sol calienta fuerte. La noche refresca. Empaca las dos versiones de ti.' },
     { days:5, icon:'♨️',  msg:'Habrá agua — pero más caliente de lo que imaginas. Y solo para nosotros dos.' },
     { days:3, icon:'🎨', msg:'Un pueblo pintado de colores que no olvidarás. Ya casi descubres cuál.' },
