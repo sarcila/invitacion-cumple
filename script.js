@@ -324,7 +324,7 @@ function showToast(msg){
     { days:7, icon:'🌤️', msg:'El sol calienta fuerte. La noche refresca. Empaca las dos versiones de ti.' },
     { days:5, icon:'♨️',  msg:'Habrá agua — pero más caliente de lo que imaginas. Y solo para nosotros dos.' },
     { days:3, icon:'🎨', msg:'Un pueblo pintado de colores que no olvidarás. Ya casi descubres cuál.' },
-    { days:1, icon:'✦',  msg:'Mañana. Solo empaca. De todo lo demás me encargo yo.' },
+    { days:1, icon:'🛒', msg:'Mañana partimos. Pero primero hay un carrito vacío esperando — y ese lo llenamos juntos.' },
   ];
 
   const feed = document.getElementById('notifFeed');
